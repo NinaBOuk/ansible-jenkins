@@ -8,10 +8,10 @@
   become: yes
 
  - name: Start and enable Nginx using systemd
-      systemd:
-        name: nginx
-        state: started
-        enabled: yes
+   systemd:
+      name: nginx
+      state: started
+      enabled: yes
   become: yes
 
 - name: index

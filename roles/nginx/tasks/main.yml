@@ -7,6 +7,10 @@
     cache_valid_time: 3600
   become: yes
 
+- name: Ensure nginx configuration is correct
+  command: nginx -t
+  register: nginx_test
+  failed_when: nginx_test.rc != 0
 - name: Start and enable Nginx using systemd
   systemd:
     name: nginx

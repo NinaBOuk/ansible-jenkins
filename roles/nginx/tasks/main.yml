@@ -11,11 +11,10 @@
   command: nginx -t
   register: nginx_test
   failed_when: nginx_test.rc != 0
-- name: Start and enable Nginx using systemd
-  systemd:
+- name: start nginx
+  service:
     name: nginx
     state: started
-    enabled: yes
   become: yes
 
 - name: Deploy index.html template
